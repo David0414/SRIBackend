@@ -89,6 +89,8 @@ def route():
 def nearest_node():
     return jsonify({'distance': 0})
 
-if __name__ == '__main__':
-    print("🛰️ Cargando sistema de rutas con ORS y soporte multi-destino...")
-    app.run(debug=True)
+# Para desarrollo local
+if __name__ == "__main__":
+    env = os.getenv("FLASK_ENV", "development")
+    if env == "development":
+        app.run(host="0.0.0.0", port=5000, debug=True)
