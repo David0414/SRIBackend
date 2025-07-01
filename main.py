@@ -89,8 +89,5 @@ def route():
 def nearest_node():
     return jsonify({'distance': 0})
 
-# Para desarrollo local
 if __name__ == "__main__":
-    env = os.getenv("FLASK_ENV", "development")
-    if env == "development":
-        app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
